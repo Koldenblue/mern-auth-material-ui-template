@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { setCurrentUser, selectCurrentUser } from './redux/userSlice';
+import { setClasses } from './redux/classSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import Login from './components/LoginSignupPages/Login';
 import Signup from './components/LoginSignupPages/Signup';
@@ -9,11 +10,21 @@ import Home from './components/Home';
 import FourOhFour from './components/FourOhFour';
 import ProtectedRoute from './components/ProtectedRoute';
 import LoginStatus from './components/LoginStatus';
+import { withStyles } from '@material-ui/core/styles';
 
-function App() {
+const styles = {
+  form: {
+    display: 'flex',
+    alignItems: 'baseline',
+    justifyContent: 'space-evenly'
+  }
+}
+
+export default withStyles(styles)(function App(props) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true)
   let currentUser = useSelector(selectCurrentUser);
+  const { classes } = props;
 
   // upon route switch, gets user info if already logged in (otherwise redux store state is reset to initial value on page reload)
   useEffect(() => {
@@ -30,6 +41,10 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    console.log(classes);
+    dispatch(setClasses(classes));
+  }, [classes])
 
   return (
     <div className="App">
@@ -62,6 +77,4 @@ function App() {
       </Router>
     </div>
   );
-}
-
-export default App;
+})

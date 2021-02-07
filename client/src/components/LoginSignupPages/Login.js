@@ -5,7 +5,8 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import WatercolorBackground from "./WatercolorBackground";
 import { setCurrentUser } from '../../redux/userSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectClasses } from '../../redux/classSlice';
 import { Redirect } from 'react-router-dom';
 import LoginJumbotron from './LoginJumbotron';
 
@@ -16,6 +17,11 @@ function Login() {
   const [redirect, setRedirect] = useState(<></>);
   const history = useHistory();
   const dispatch = useDispatch();
+  const classes = useSelector(selectClasses);
+
+  useEffect(() => {
+    console.log(classes);
+  }, [classes])
 
   let handleSubmit = (event) => {
     event.preventDefault();
@@ -91,8 +97,8 @@ function Login() {
     {redirect}
     <LoginJumbotron />
     <WatercolorBackground />
-    <Grid container spacing={2} className='loginSignupContainer'>
-      <form>
+    <Grid container spacing={2} >
+      <form onSubmit={handleSubmit} className={classes.form} >
         <Grid item xs={12}>
           <Grid container justify='center'>
           <TextField
@@ -104,44 +110,27 @@ function Login() {
           </Grid>
         </Grid>
 
-
-        <Grid></Grid>
-        <Grid>
           <TextField
             label='Password'
             onChange={(event) => setPassword(event.target.value)}
             type="password"
             name='password'
           />
-        </Grid>
-        <Grid></Grid>
 
-        <Grid></Grid>
-        <Grid>
-          <Button className='signupLoginBtns' onClick={handleSubmit} variant="contained" color='primary' type="submit">
+          <Button onClick={handleSubmit} variant="contained" color='primary' type="submit">
             Log In
             </Button>
-        </Grid>
-        <Grid></Grid>
 
-        <Grid></Grid>
-        <Grid>
-          <Button className='signupLoginBtns' onClick={goToSignup} variant="contained" color='secondary' type="submit">
+          <Button onClick={goToSignup} variant="contained" color='secondary'>
             Sign Up Form
             </Button>
-        </Grid>
-        <Grid></Grid>
 
-        <Grid></Grid>
-        <Grid>
           <AlertBox
             message={message}
           />
-        </Grid>
-        <Grid></Grid>
 
         {/* Button for easily logging in, after running seed.js. Comment this code out for production deployment. */}
-        <Button onClick={devLogin}>
+        <Button variant='outlined' onClick={devLogin}>
           Dev Login for protected route
         </Button>
         <br />

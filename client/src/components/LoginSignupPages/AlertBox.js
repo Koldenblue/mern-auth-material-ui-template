@@ -11,6 +11,7 @@ function AlertBox(props) {
       'backgroundColor': 'rebeccapurple',
       'padding': '10px',
       'color' : 'antiquewhite',
+      boxShadow:'0px 2px 8px grey',
       opacity: opacity,
       margin: '2px'
     }

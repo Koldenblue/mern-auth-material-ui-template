@@ -1,14 +1,10 @@
 import React from 'react';
-// import Jumbotron from 'react-bootstrap/Jumbotron';
-import { Container } from '@material-ui/core';
-
+import Typography from '@material-ui/core/Typography'
 
 export default function LoginJumbotron() {
   return (
     <div className='login-jumbotron' fluid>
-      <Container>
-        <h1 className='login-title'>Welcome</h1>
-      </Container>
+        <Typography variant='h1' className='login-title'>Welcome</Typography>
     </div>
   )
 }

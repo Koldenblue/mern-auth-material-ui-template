@@ -30,7 +30,7 @@ function Login() {
       // attempt to log in with username and password
       axios.post(`/api/login`, user).then((data) => {
         // if successful, get all related user data
-        axios.get("/api/userdata").then(({data}) => {
+        axios.get("/api/userdata").then(({ data }) => {
           // set the user data in the redux store
           if (data) {
             dispatch(setCurrentUser(data))
@@ -68,7 +68,7 @@ function Login() {
   // button to log in with preset username and pass
   const devLogin = () => {
     axios.post(`/api/login`, { username: "1", password: "111111" }).then(data => {
-      axios.get("/api/userdata").then(({data}) => {
+      axios.get("/api/userdata").then(({ data }) => {
         // set the user data in the redux store
         if (data) {
           dispatch(setCurrentUser(data))
@@ -91,54 +91,54 @@ function Login() {
     {redirect}
     <LoginJumbotron />
     <WatercolorBackground />
-    <Container className='loginSignupContainer'>
+    <Grid container spacing={2} className='loginSignupContainer'>
       <form>
-          <Grid></Grid>
-          <Grid>
-              <TextField
-                label="Username"
-                name='username'
-                onChange={(event) => setUsername(event.target.value)}
-                type="text"
-              />
+        <Grid item xs={12}>
+          <Grid container justify='center'>
+          <TextField
+            label="Username"
+            name='username'
+            onChange={(event) => setUsername(event.target.value)}
+            type="text"
+          />
           </Grid>
-          <Grid></Grid>
+        </Grid>
 
 
-          <Grid></Grid>
-          <Grid>
-              <TextField
-                label='Password'
-                onChange={(event) => setPassword(event.target.value)}
-                type="password"
-                name='password'
-              />
-          </Grid>
-          <Grid></Grid>
+        <Grid></Grid>
+        <Grid>
+          <TextField
+            label='Password'
+            onChange={(event) => setPassword(event.target.value)}
+            type="password"
+            name='password'
+          />
+        </Grid>
+        <Grid></Grid>
 
-          <Grid></Grid>
-          <Grid>
-            <Button className='signupLoginBtns' onClick={handleSubmit} variant="contained" color='primary' type="submit">
-              Log In
+        <Grid></Grid>
+        <Grid>
+          <Button className='signupLoginBtns' onClick={handleSubmit} variant="contained" color='primary' type="submit">
+            Log In
             </Button>
-          </Grid>
-          <Grid></Grid>
+        </Grid>
+        <Grid></Grid>
 
-          <Grid></Grid>
-          <Grid>
-            <Button className='signupLoginBtns' onClick={goToSignup} variant="contained" color='secondary' type="submit">
-              Sign Up Form
+        <Grid></Grid>
+        <Grid>
+          <Button className='signupLoginBtns' onClick={goToSignup} variant="contained" color='secondary' type="submit">
+            Sign Up Form
             </Button>
-          </Grid>
-          <Grid></Grid>
+        </Grid>
+        <Grid></Grid>
 
-          <Grid></Grid>
-          <Grid>
-            <AlertBox
-              message={message}
-            />
-          </Grid>
-          <Grid></Grid>
+        <Grid></Grid>
+        <Grid>
+          <AlertBox
+            message={message}
+          />
+        </Grid>
+        <Grid></Grid>
 
         {/* Button for easily logging in, after running seed.js. Comment this code out for production deployment. */}
         <Button onClick={devLogin}>
@@ -149,7 +149,7 @@ function Login() {
         {/* Link to a page that can be accessed whether logged in or not, but changes depending on login status. */}
         <a href='/loginstatus'>Go to page dependent on login status</a>
       </form>
-    </Container>
+    </Grid>
   </>)
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import waterBgImg from '../../assets/images/watercolor-background.png'
 
 export default function WatercolorBackground() {
 
@@ -8,10 +9,10 @@ export default function WatercolorBackground() {
       width: '50%',
       left: '50%',
       transform: 'translateX(-50%)',
-      marginTop: '-2em'
+      marginTop: '2em'
     }
   }
   return (<>
-    <img src={require('../../assets/images/watercolor-background.png')} style={styles.waterBg} />
+    <img src={waterBgImg} style={styles.waterBg} alt='watercolor' />
   </>)
 }

@@ -18,6 +18,10 @@ const styles = {
     display: 'flex',
     alignItems: 'baseline',
     justifyContent: 'space-evenly'
+  },
+  formRow: {
+    display: 'flex',
+    justifyContent: 'center'
   }
 }
 

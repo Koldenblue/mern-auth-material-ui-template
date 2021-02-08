@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography'
 
 export default function LoginJumbotron() {
   return (
-    <div className='login-jumbotron' fluid>
+    <div className='login-jumbotron'>
         <Typography variant='h1' className='login-title'>Welcome</Typography>
     </div>
   )

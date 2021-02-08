@@ -97,43 +97,56 @@ function Login() {
     {redirect}
     <LoginJumbotron />
     <WatercolorBackground />
-    <form onSubmit={handleSubmit}
-      className={classes.form}
-    >
-      <TextField
-        label="Username"
-        name='username'
-        onChange={(event) => setUsername(event.target.value)}
-        type="text"
-      />
+    <form onSubmit={handleSubmit}>
+      <div className={classes.formRow} >
+        <TextField
+          label="Username"
+          name='username'
+          onChange={(event) => setUsername(event.target.value)}
+          type="text"
+        />
+      </div>
 
-      <TextField
-        label='Password'
-        onChange={(event) => setPassword(event.target.value)}
-        type="password"
-        name='password'
-      />
+      <div className={classes.formRow} >
+        <TextField
+          label='Password'
+          onChange={(event) => setPassword(event.target.value)}
+          type="password"
+          name='password'
+        />
+      </div>
+      <div className={classes.formRow} >
 
-      <Button onClick={handleSubmit} variant="contained" color='primary' type="submit">
-        Log In
+        <Button onClick={handleSubmit} variant="contained" color='primary' type="submit">
+          Log In
             </Button>
+      </div>
+      <div className={classes.formRow} >
 
-      <Button onClick={goToSignup} variant="contained" color='secondary'>
-        Sign Up Form
+        <Button onClick={goToSignup} variant="contained" color='secondary'>
+          Sign Up Form
             </Button>
+      </div>
+      <div className={classes.formRow} >
 
-      <AlertBox
-        message={message}
-      />
+        <AlertBox
+          message={message}
+        />
+      </div>
 
-      {/* Button for easily logging in, after running seed.js. Comment this code out for production deployment. */}
-      <Button variant='outlined' onClick={devLogin}>
-        Dev Login for protected route
+      <div className={classes.formRow} >
+
+        {/* Button for easily logging in, after running seed.js. Comment this code out for production deployment. */}
+        <Button variant='outlined' onClick={devLogin}>
+          Dev Login for protected route
         </Button>
+      </div>
       <br />
+      <div className={classes.formRow} >
 
-      {/* Link to a page that can be accessed whether logged in or not, but changes depending on login status. */}
-      <a href='/loginstatus'>Go to page dependent on login status</a>
+        {/* Link to a page that can be accessed whether logged in or not, but changes depending on login status. */}
+        <a href='/loginstatus'>Go to page dependent on login status</a>
+      </div>
     </form>
   </>)
 }

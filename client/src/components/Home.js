@@ -1,11 +1,13 @@
 import React from 'react';
 import Axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentUser } from '../redux/userSlice';
 import { Typography, Button } from '@material-ui/core'
+import { selectClasses } from '../redux/classSlice';
 
 export default function Home() {
   const dispatch = useDispatch();
+  const classes = useSelector(selectClasses);
 
   const logout = () => {
     Axios.get('api/logout').then(() => {
@@ -15,12 +17,14 @@ export default function Home() {
     })
   }
 
-  return(
+  return (
     <>
       <Typography variant='h3' align='center' gutterBottom>
         This page is protected by ProtectedRoute.js, and is only reachable when logged in.
       </Typography>
-      <Button variant='outlined' color='primary' onClick={logout}>log out</Button>
+      <div className={classes.formRow} >
+        <Button variant='outlined' color='primary' onClick={logout}>log out</Button>
+      </div>
     </>
   )
 }

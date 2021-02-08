@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setCurrentUser } from '../redux/userSlice';
-import Typography from '@material-ui/core/Typography'
+import { Typography, Button } from '@material-ui/core'
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function Home() {
       <Typography variant='h3' align='center' gutterBottom>
         This page is protected by ProtectedRoute.js, and is only reachable when logged in.
       </Typography>
-      <button onClick={logout}>log out</button>
+      <Button variant='outlined' color='primary' onClick={logout}>log out</Button>
     </>
   )
 }

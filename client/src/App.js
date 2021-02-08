@@ -12,6 +12,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import LoginStatus from './components/LoginStatus';
 import { withStyles } from '@material-ui/core/styles';
 
+// styles are passed as props to App
 const styles = {
   form: {
     display: 'flex',
@@ -43,6 +44,7 @@ export default withStyles(styles)(function App(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // the App will not render until the dispatch is successful
   useEffect(() => {
     console.log(classes);
     console.log(loadingClasses)

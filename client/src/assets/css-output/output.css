@@ -29,13 +29,8 @@
 
 /* ==================================*/
 /* ===== Login and Signup pages ===== */
-.loginSignupContainer {
-  margin-top: 2em;
-  position: relative;
-}
-
-.signupLoginBtns {
-  margin: 2px;
+.paper-p {
+  padding: 1em;
 }
 
 .login-title {
@@ -91,6 +86,10 @@
   left: 50%;
   top: 40%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+body {
+  background-color: lightsteelblue;
 }
 
 /* ==================================*/

@@ -97,46 +97,44 @@ function Login() {
     {redirect}
     <LoginJumbotron />
     <WatercolorBackground />
-    <Grid container spacing={2} >
-      <form onSubmit={handleSubmit} 
-        className={classes.form}
-      >
-          <TextField
-            label="Username"
-            name='username'
-            onChange={(event) => setUsername(event.target.value)}
-            type="text"
-          />
+    <form onSubmit={handleSubmit}
+      className={classes.form}
+    >
+      <TextField
+        label="Username"
+        name='username'
+        onChange={(event) => setUsername(event.target.value)}
+        type="text"
+      />
 
-          <TextField
-            label='Password'
-            onChange={(event) => setPassword(event.target.value)}
-            type="password"
-            name='password'
-          />
+      <TextField
+        label='Password'
+        onChange={(event) => setPassword(event.target.value)}
+        type="password"
+        name='password'
+      />
 
-          <Button onClick={handleSubmit} variant="contained" color='primary' type="submit">
-            Log In
+      <Button onClick={handleSubmit} variant="contained" color='primary' type="submit">
+        Log In
             </Button>
 
-          <Button onClick={goToSignup} variant="contained" color='secondary'>
-            Sign Up Form
+      <Button onClick={goToSignup} variant="contained" color='secondary'>
+        Sign Up Form
             </Button>
 
-          <AlertBox
-            message={message}
-          />
+      <AlertBox
+        message={message}
+      />
 
-        {/* Button for easily logging in, after running seed.js. Comment this code out for production deployment. */}
-        <Button variant='outlined' onClick={devLogin}>
-          Dev Login for protected route
+      {/* Button for easily logging in, after running seed.js. Comment this code out for production deployment. */}
+      <Button variant='outlined' onClick={devLogin}>
+        Dev Login for protected route
         </Button>
-        <br />
+      <br />
 
-        {/* Link to a page that can be accessed whether logged in or not, but changes depending on login status. */}
-        <a href='/loginstatus'>Go to page dependent on login status</a>
-      </form>
-    </Grid>
+      {/* Link to a page that can be accessed whether logged in or not, but changes depending on login status. */}
+      <a href='/loginstatus'>Go to page dependent on login status</a>
+    </form>
   </>)
 }
 

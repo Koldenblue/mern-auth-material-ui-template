@@ -2,12 +2,15 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentUser, selectCurrentUser } from '../redux/userSlice';
+import { Paper, Button, Typography } from '@material-ui/core';
+import { selectClasses } from '../redux/classSlice';
 
 // This page can be reached whether logged in or not, but will display different contents depending on login status.
 export default function LoginStatus(props) {
   const [loginStatus, setLoginStatus] = useState();
   const dispatch = useDispatch();
   let currentUser = useSelector(selectCurrentUser);
+  const classes = useSelector(selectClasses);
 
   const logout = () => {
     Axios.get('api/logout').then(() => {
@@ -21,20 +24,24 @@ export default function LoginStatus(props) {
     if (currentUser) {
       // console.log(userInfo);
       setLoginStatus(
-        <div className='home'>
-          <p>
+        <Paper elevation={3} className='home'>
+          <Typography variant='body1' className='paper-p' >
             You are logged in as user "{currentUser.username}".
-        </p>
-          <button className='btn-primary btn' onClick={logout}>log out</button>
-        </div>)
+          </Typography>
+          <Button variant='contained' onClick={logout}>log out</Button>
+        </Paper>
+      )
     } else {
       setLoginStatus(
-        <div className='home'>
-          <p>
+        <Paper className='home'>
+          <Typography variant='body1' className='paper-p' >
             You are not logged in.
-        </p>
-          <a href='/login'>Go to login page</a>
-        </div>)
+          </Typography>
+          <Typography variant='body1' className='paper-p' >
+            <a href='/login'>Go to login page</a>
+          </Typography>
+        </Paper>
+      )
     }
   }, [currentUser])
 

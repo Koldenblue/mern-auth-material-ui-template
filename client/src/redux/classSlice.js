@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 // the classes object, from the withStyles object created in App.js
+// loadingClasses ensures that App.js will not render anything until the classes is no longer null
 export const classSlice = createSlice({
   name: 'class',
   initialState: {

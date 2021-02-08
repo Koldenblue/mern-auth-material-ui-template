@@ -98,17 +98,15 @@ function Login() {
     <LoginJumbotron />
     <WatercolorBackground />
     <Grid container spacing={2} >
-      <form onSubmit={handleSubmit} className={classes.form} >
-        <Grid item xs={12}>
-          <Grid container justify='center'>
+      <form onSubmit={handleSubmit} 
+        className={classes.form}
+      >
           <TextField
             label="Username"
             name='username'
             onChange={(event) => setUsername(event.target.value)}
             type="text"
           />
-          </Grid>
-        </Grid>
 
           <TextField
             label='Password'

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { setCurrentUser, selectCurrentUser } from './redux/userSlice';
-import { setClasses } from './redux/classSlice';
+import { selectClasses, selectLoadingClasses, setClasses } from './redux/classSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import Login from './components/LoginSignupPages/Login';
 import Signup from './components/LoginSignupPages/Signup';
@@ -20,11 +20,13 @@ const styles = {
   }
 }
 
+
 export default withStyles(styles)(function App(props) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true)
   let currentUser = useSelector(selectCurrentUser);
   const { classes } = props;
+  const loadingClasses = useSelector(selectLoadingClasses);
 
   // upon route switch, gets user info if already logged in (otherwise redux store state is reset to initial value on page reload)
   useEffect(() => {
@@ -43,10 +45,12 @@ export default withStyles(styles)(function App(props) {
 
   useEffect(() => {
     console.log(classes);
+    console.log(loadingClasses)
     dispatch(setClasses(classes));
   }, [classes])
 
-  return (
+
+  return loadingClasses ? (<></>) : (
     <div className="App">
       <Router>
         <Switch>

@@ -9,7 +9,8 @@ export default function WatercolorBackground() {
       width: '50%',
       left: '50%',
       transform: 'translateX(-50%)',
-      marginTop: '2em'
+      marginTop: '2em',
+      zIndex: '-1'
     }
   }
   return (<>

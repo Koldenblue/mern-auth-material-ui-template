@@ -1,7 +1,7 @@
-@use 'loadingScreen';
-@use 'loginSignup';
-@use 'fourOhFour';
-@use 'vars';
+@use '../components/Loading/loadingScreen';
+@use '../components/LoginSignupPages/loginSignup';
+@use '../components/FourOhFour/fourOhFour';
+@use 'variables';
 
 /* ===== Home.js page ===== */
 .home {

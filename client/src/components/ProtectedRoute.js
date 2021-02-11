@@ -11,26 +11,20 @@ const ProtectedRoute = ({
   user,
   ...rest
 }) => {
-    return isLoading ? (
-      <Loading />
-    ) : user ? (
-      <Route {...rest} />
-    ) : (
-      <Redirect to={onFailureRedirectToPath} />
-    );
-  };
+  return isLoading ? (
+    <Loading />
+  ) : user ? (
+    <Route {...rest} />
+  ) : (
+        <Redirect to={onFailureRedirectToPath} />
+  );
+};
 
 
-  /* For testing the loading screen code, return the code below instead, which will just return loading screen forever. */
-//   return (<>
-//     <div className='loading'>
-//       <div className='loading-bottom'>
-//         <div className='loading-bars'>
-//           <ReactLoading color="rgb(180, 180, 180)" height={200} width={200} type="cubes" />
-//         </div>
-//       </div>
-//     </div>
-//   </>)
+/* For testing the loading screen code, return the code below instead, which will just return loading screen forever. */
+//   return (
+//     <Loading />
+//   )
 // }
 
 export default ProtectedRoute;

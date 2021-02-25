@@ -117,13 +117,13 @@ function Login() {
       </div>
       <div className={classes.formRow} >
 
-        <Button onClick={handleSubmit} variant="contained" color='primary' type="submit">
+        <Button onClick={handleSubmit} className='login-signup-btn' variant="contained" color='primary' type="submit">
           Log In
             </Button>
       </div>
       <div className={classes.formRow} >
 
-        <Button onClick={goToSignup} variant="contained" color='secondary'>
+        <Button onClick={goToSignup} className='login-signup-btn' variant="contained" color='secondary'>
           Sign Up Form
             </Button>
       </div>

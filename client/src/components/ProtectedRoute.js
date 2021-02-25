@@ -16,7 +16,7 @@ const ProtectedRoute = ({
   ) : user ? (
     <Route {...rest} />
   ) : (
-        <Redirect to={onFailureRedirectToPath} />
+    <Redirect to={onFailureRedirectToPath} />
   );
 };
 

@@ -57,7 +57,7 @@ export default withStyles(styles)(function App(props) {
 
 
   return loadingClasses ? (<></>) : (
-    <div className="App">
+    <div className="App" data-testid='App'>
       <Router>
         <Switch>
 

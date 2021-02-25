@@ -12,7 +12,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import LoginStatus from './components/LoginStatus';
 import { withStyles } from '@material-ui/core/styles';
 import Loading from './components/Loading/Loading';
-import './assets/index.css';
 
 // styles are passed as props to App
 const styles = {

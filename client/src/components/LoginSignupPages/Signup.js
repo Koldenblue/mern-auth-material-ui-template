@@ -6,12 +6,15 @@ import { Redirect } from "react-router-dom"
 import { useHistory } from "react-router-dom";
 import WatercolorBackground from "./WatercolorBackground";
 import LoginJumbotron from './LoginJumbotron';
+import { selectClasses } from '../../redux/classSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Signup({ loading, user }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const history = useHistory();
+  const classes = useSelector(selectClasses);
 
   let handleSubmit = (event) => {
     event.preventDefault();
@@ -62,60 +65,46 @@ function Signup({ loading, user }) {
     <>
       <LoginJumbotron />
       <WatercolorBackground />
-      <Container className='loginSignupContainer'>
 
-        <form>
-            <Grid></Grid>
-            <Grid>
-                <TextField
-                  label="Username"
-                  name='username'
-                  onChange={(event) => setUsername(event.target.value)}
-                  type="text"
-                  placeholder=""
-                />
-            </Grid>
-            <Grid></Grid>
+      <form onSubmit={handleSubmit}>
+        <div className={classes.formRow}>
+          <TextField
+            label="Username"
+            name='username'
+            onChange={(event) => setUsername(event.target.value)}
+            type="text"
+            placeholder=""
+          />
+        </div>
 
+        <div className={classes.formRow}>
+          <TextField
+            label='Password'
+            onChange={(event) => setPassword(event.target.value)}
+            type="password"
+            placeholder="password"
+            name='password'
+          />
+        </div>
 
-            <Grid></Grid>
-            <Grid>
-                <TextField
-                  label='Password'
-                  onChange={(event) => setPassword(event.target.value)}
-                  type="password"
-                  placeholder="password"
-                  name='password'
-                />
-            </Grid>
-            <Grid></Grid>
+        <div className={classes.formRow}>
+          <Button className='login-signup-btn' onClick={handleSubmit} variant="contained" color='secondary' type="submit">
+            Sign up
+          </Button>
+        </div>
 
-            <Grid></Grid>
-            <Grid>
-              <Button className='signupLoginBtns' onClick={handleSubmit} variant="contained" color='secondary' type="submit">
-                Sign up
-              </Button>
-            </Grid>
-            <Grid></Grid>
+        <div className={classes.formRow}>
+          <Button className='login-signup-btn' onClick={goToLogin} variant="contained" color='primary'>
+            Go to Log In Form
+          </Button>
+        </div>
 
-            <Grid></Grid>
-            <Grid>
-              <Button className='signupLoginBtns' onClick={goToLogin} variant="contained" color='primary' type="submit">
-                Go to Log In Form
-              </Button>
-            </Grid>
-            <Grid></Grid>
-
-            <Grid></Grid>
-            <Grid>
-              <AlertBox
-                message={message}
-              />
-            </Grid>
-            <Grid></Grid>
-
-        </form>
-      </Container>
+        <div className={classes.formRow}>
+          <AlertBox
+            message={message}
+          />
+        </div>
+      </form>
     </>
   )
 }

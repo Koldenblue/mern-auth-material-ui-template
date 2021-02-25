@@ -115,14 +115,14 @@ function Login() {
           name='password'
         />
       </div>
-      <div className={classes.formRow} >
 
-        <Button onClick={handleSubmit} className='login-signup-btn' variant="contained" color='primary' type="submit">
+      <div className={classes.formRow} >
+        <Button className='login-signup-btn' variant="contained" color='primary' type="submit">
           Log In
             </Button>
       </div>
-      <div className={classes.formRow} >
 
+      <div className={classes.formRow} >
         <Button onClick={goToSignup} className='login-signup-btn' variant="contained" color='secondary'>
           Sign Up Form
             </Button>
